@@ -122,11 +122,7 @@ public class WelcomeActivity extends XmppActivity implements XmppConnectionServi
         ActivityWelcomeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_welcome);
         setSupportActionBar(binding.toolbar);
         configureActionBar(getSupportActionBar(), false);
-        binding.registerNewAccount.setOnClickListener(v -> {
-            final Intent intent = new Intent(this, PickServerActivity.class);
-            addInviteUri(intent);
-            startActivity(intent);
-        });
+
         binding.useExisting.setOnClickListener(v -> {
             final List<Account> accounts = xmppConnectionService.getAccounts();
             Intent intent = new Intent(WelcomeActivity.this, EditAccountActivity.class);
